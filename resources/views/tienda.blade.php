@@ -8,9 +8,10 @@
 <body class="text-black">
 
 <!-- Header Fijo -->
-<header style="background-color: #e50914; color: white; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 999; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+<header style="background-color: #e50914; color: white; padding: 20px;">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
         <h1 style="font-size: 22px; font-weight: bold; margin: 0;">PINTURAS GENERAL</h1>
+
         <nav style="display: flex; gap: 60px; align-items: center; font-size: 16px; flex-wrap: wrap;">
             <a href="{{ route('inicio') }}" style="color: white;">Inicio</a>
             <a href="{{ route('trabajos') }}" style="color: white;">Trabajos</a>
@@ -19,6 +20,7 @@
             <a href="{{ route('contacto') }}" style="color: white;">Contacto</a>
             <a href="{{ route('nosotros') }}" style="color: white;">Sobre Nosotros</a>
         </nav>
+
         <div style="display: flex; gap: 10px; align-items: center; position: relative;">
             <a href="https://www.facebook.com/share/1CAt5m8ubn/" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" style="width: 24px; height: 24px;">
@@ -43,6 +45,7 @@
         </div>
     </div>
 </header>
+
 
 <!-- Separador para evitar que el header tape el contenido -->
 <div style="height: 115px;"></div>
@@ -113,11 +116,27 @@
     </div>
 </main>
 
-<footer style="position: fixed; bottom: 0; left: 0; width: 100%; background-color:rgb(2, 2, 2); color: white; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; font-size: 14px; z-index: 50;">
-    <div>629 65 24 29</div>
-    <div style="font-weight: bold;">PINTURAS GENERAL</div>
-    <div>Francisco Martinez de Asís</div>
+<footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(2, 2, 2);
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    z-index: 100;
+    box-sizing: border-box;
+">
+    <div style="flex: 1 1 120px;">629 65 24 29</div>
+    <div style="flex: 1 1 auto; text-align: center; font-weight: bold;">PINTURAS GENERAL</div>
+    <div style="flex: 1 1 180px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Francisco Martinez de Asís</div>
 </footer>
+
 
 <script>
     function toggleFavorito(event, idProducto) {

@@ -90,11 +90,27 @@
     </div>
 </div>
 
-<footer style="position: fixed; bottom: 0; left: 0; width: 100%; background-color:rgb(2, 2, 2); color: white; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; font-size: 14px; z-index: 50;">
-    <div>629 65 24 29</div>
-    <div style="font-weight: bold;">PINTURAS GENERAL</div>
-    <div>Francisco Martinez de Asís</div>
+<footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(2, 2, 2);
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    z-index: 100;
+    box-sizing: border-box;
+">
+    <div style="flex: 1 1 120px;">629 65 24 29</div>
+    <div style="flex: 1 1 auto; text-align: center; font-weight: bold;">PINTURAS GENERAL</div>
+    <div style="flex: 1 1 180px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Francisco Martinez de Asís</div>
 </footer>
+
 
 <script>
     function toggleMenu() {

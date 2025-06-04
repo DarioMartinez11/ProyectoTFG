@@ -101,18 +101,21 @@ style="display: block;
 
         @if ($cantidadImagenes > 0)
             <div class="image-grid {{ $cantidadImagenes === 1 ? 'una-sola' : '' }}">
-                @if ($proyecto->ImagenDespues)
-                    <div class="image-card fade-in">
-                        <h4><strong>TRABAJO INICIAL</strong></h4>
-                        <img src="{{ asset($proyecto->ImagenDespues) }}" alt="Antes">
-                    </div>
-                @endif
-                @if ($proyecto->ImagenAntes)
-                    <div class="image-card fade-in">
-                        <h4><strong>TRABAJO FINALIZADO</strong></h4>
-                        <img src="{{ asset($proyecto->ImagenAntes) }}" alt="Después">
-                    </div>
-                @endif
+               @if ($proyecto->ImagenAntes)
+    <div class="image-card fade-in">
+        <h4><strong>TRABAJO FINALIZADO</strong></h4>
+        <img src="{{ asset($proyecto->ImagenAntes) }}" alt="Finalizado">
+    </div>
+@endif
+
+@if ($proyecto->ImagenDespues)
+    <div class="image-card fade-in">
+        <h4><strong>TRABAJO INICIAL</strong></h4>
+        <img src="{{ asset($proyecto->ImagenDespues) }}" alt="Inicial">
+    </div>
+@endif
+
+
             </div>
         @endif
 

@@ -1,102 +1,119 @@
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            animation: fondoAnimado 15s ease infinite;
-            background: linear-gradient(-45deg, #ffe5e5, #fff6f6, #ffdada, #ffffff);
-            background-size: 400% 400%;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    animation: fondoAnimado 15s ease infinite;
+    background: linear-gradient(-45deg, #ffe5e5, #fff6f6, #ffdada, #ffffff);
+    background-size: 400% 400%;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
 
-        @keyframes fondoAnimado {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        #profile-menu a,
-        #profile-menu button {
-            display: block;
-            width: 100%;
-            padding: 12px 18px;
-            text-align: left;
-            font-weight: 500;
-            font-size: 14px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: black;
-            transition: background 0.2s, color 0.2s;
-        }
+#profile-menu a,
+#profile-menu button {
+    display: block;
+    width: 100%;
+    padding: 12px 18px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    transition: background 0.2s, color 0.2s;
+}
 
-        #profile-menu a:hover,
-        #profile-menu button:hover {
-            background-color: #f3f3f3;
-            color: #e50914;
-        }
+#profile-menu a:hover,
+#profile-menu button:hover {
+    background-color: #f3f3f3;
+    color: #e50914;
+}
 
-        #categorias {
-            position: sticky;
-            top: 70px;
-            z-index: 10;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
+#categorias {
+    position: sticky;
+    top: 70px;
+    z-index: 10;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
 
-        #categorias a {
-            border: 1px solid #ccc;
-            padding: 8px 16px;
-            border-radius: 20px;
-            background-color: rgba(255,255,255,0.7);
-            backdrop-filter: blur(5px);
-            text-decoration: none;
-            color: black;
-            font-weight: 500;
-        }
+#categorias a {
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,0.7);
+    backdrop-filter: blur(5px);
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
 
-        #categorias a.active {
-            background-color: #e50914;
-            color: white;
-            border-color: #e50914;
-        }
+#categorias a.active {
+    background-color: #e50914;
+    color: white;
+    border-color: #e50914;
+}
 
-        .crear-btn {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            background-color: white;
-            color: #e50914;
-            font-size: 24px;
-            font-weight: bold;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid #e50914;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-            text-decoration: none;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
+.crear-btn {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    background-color: white;
+    color: #e50914;
+    font-size: 24px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #e50914;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
 
-        .crear-btn:hover {
-            background-color: #e50914;
-            color: white;
-            transform: scale(1.1);
-        }
+.crear-btn:hover {
+    background-color: #e50914;
+    color: white;
+    transform: scale(1.1);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: rgb(2, 2, 2);
+    color: white;
+}

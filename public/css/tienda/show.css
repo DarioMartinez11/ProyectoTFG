@@ -53,6 +53,9 @@
             flex-shrink: 0;
         }
 
+                a {
+    text-decoration: none;
+}
         .carousel {
             display: flex;
             transition: transform 0.4s ease;

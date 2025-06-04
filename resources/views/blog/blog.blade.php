@@ -9,8 +9,8 @@
 </head>
 <body>
   <!-- HEADER FIJO -->
-  <header style="background-color: #e50914; color: white; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 999; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+ <header style="background-color: #e50914; color: white; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 999; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+   <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding-left: 20px; padding-right: 40px; box-sizing: border-box;">
       <h1 style="font-size: 22px; font-weight: bold; margin: 0;">PINTURAS GENERAL</h1>
       <nav style="display: flex; gap: 60px; align-items: center; font-size: 16px; flex-wrap: wrap;">
         <a href="{{ route('inicio') }}" style="color: white; text-decoration: none;">Inicio</a>
@@ -96,11 +96,27 @@
   </main>
 
   <!-- FOOTER -->
-  <footer style="position: fixed; bottom: 0; left: 0; width: 100%; background-color:rgb(2, 2, 2); color: white; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; font-size: 14px; z-index: 50;">
-    <div>629 65 24 29</div>
-    <div style="font-weight: bold;">PINTURAS GENERAL</div>
-    <div>Francisco Martinez de Asís</div>
-  </footer>
+<footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(2, 2, 2);
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    z-index: 100;
+    box-sizing: border-box;
+">
+    <div style="flex: 1 1 120px;">629 65 24 29</div>
+    <div style="flex: 1 1 auto; text-align: center; font-weight: bold;">PINTURAS GENERAL</div>
+    <div style="flex: 1 1 180px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Francisco Martinez de Asís</div>
+</footer>
+
 
   <!-- SCRIPTS -->
   <script>

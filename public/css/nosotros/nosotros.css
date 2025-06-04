@@ -57,3 +57,7 @@
         .cta-button:hover {
             background-color: #c40812;
         }
+
+        a {
+    text-decoration: none;
+}
