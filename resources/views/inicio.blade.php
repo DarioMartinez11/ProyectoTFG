@@ -36,7 +36,7 @@
     </div>
 </header>
 
-<section class="hero" style="min-height: calc(100vh - 100px); background: url('{{ asset('img/9.jpg') }}') center/cover no-repeat; position: relative;">
+<section class="hero" style="min-height: calc(100vh - 100px); background: url('{{ asset('img/proyectos/9.jpg') }}') center/cover no-repeat; position: relative;">
     <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); z-index:0;"></div>
     <div class="fade-in" style="position: relative; z-index: 2; text-align: center; color: #fff;">
         <h1 style="font-size: 3rem;">Transformamos tus espacios con color</h1>
