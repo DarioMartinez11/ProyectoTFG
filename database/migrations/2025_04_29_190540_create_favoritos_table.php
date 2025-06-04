@@ -8,16 +8,16 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('favoritos', function (Blueprint $table) {
+        Schema::create('favoritos_productos', function (Blueprint $table) {
             $table->unsignedBigInteger('ID_Usuario');
-            $table->unsignedBigInteger('ID_Proyecto');
+            $table->unsignedBigInteger('ID_Producto');
 
             // Primary Key compuesta
-            $table->primary(['ID_Usuario', 'ID_Proyecto']);
+            $table->primary(['ID_Usuario', 'ID_Producto']);
 
             // Foreign Keys
             $table->foreign('ID_Usuario')->references('ID_Usuario')->on('users')->onDelete('cascade');
-            $table->foreign('ID_Proyecto')->references('ID_Proyecto')->on('proyecto')->onDelete('cascade');
+            $table->foreign('ID_Producto')->references('ID_Producto')->on('producto')->onDelete('cascade');
         });
     }
 

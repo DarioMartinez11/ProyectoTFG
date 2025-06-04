@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('articulo_blog', function (Blueprint $table) {
+        Schema::create('articuloblog', function (Blueprint $table) {
             $table->id('ID_Articulo'); // Primary Key autoincremental
             $table->string('Titulo', 255);
             $table->text('Contenido')->nullable();
