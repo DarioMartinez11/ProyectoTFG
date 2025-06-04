@@ -1,0 +1,148 @@
+/* Fondo animado */
+body {
+  animation: fondoAnimado 15s ease infinite;
+  background: linear-gradient(-45deg, #ffe5e5, #fff6f6, #ffdada, #ffffff);
+  background-size: 400% 400%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+@keyframes fondoAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animación de entrada */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilo del menú del perfil */
+#profile-menu a:hover,
+#profile-menu button:hover {
+  background-color: #f3f3f3;
+}
+
+/* Categorías */
+#categorias {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+#categorias a {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+#categorias a.active {
+  background-color: #e50914;
+  color: white;
+  border-color: #e50914;
+}
+
+/* Contenedor del main */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Grilla de productos */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  width: 100%;
+  justify-items: center;
+}
+
+/* Ordenar por precio */
+.orden-box {
+  text-align: right;
+  margin: 1px 40px 10px auto;
+}
+
+.orden-box select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.producto-card {
+  width: 200px;
+  height: 250px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.producto-card .imagen {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.producto-card .imagen img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.producto-card h3 {
+  font-size: 1rem;
+  margin: 8px 0 4px;
+  min-height: 40px; /* para que los títulos cortos no desajusten */
+}
+
+.producto-card p {
+  margin: 0;
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .orden-box {
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  .orden-box select {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  #categorias {
+    justify-content: center;
+    gap: 10px;
+  }
+}

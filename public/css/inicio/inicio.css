@@ -1,0 +1,61 @@
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1604014237800-1f3d1a455917') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .buttons a {
+            background-color: #e50914;
+            color: black;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .buttons a:hover {
+            background-color: #b20710;
+        }
+
+        #profile-menu a, #profile-menu button {
+            display: block;
+            width: 100%;
+            padding: 12px 18px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 14px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        #profile-menu a:hover,
+        #profile-menu button:hover {
+            background-color: #f3f3f3;
+        }

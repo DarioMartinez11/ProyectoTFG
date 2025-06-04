@@ -1,0 +1,124 @@
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #111;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #e50914;
+            color: white;
+            padding: 20px 40px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 14px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+
+        .titulo {
+            font-size: 2rem;
+            text-align: center;
+            margin: 30px 0 10px;
+            font-weight: bold;
+        }
+
+        .carrito-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .producto {
+            position: relative;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .producto img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .producto-info {
+            flex-grow: 1;
+        }
+
+        .producto-info h3 {
+            margin: 0 0 5px 0;
+        }
+
+        .producto-info p {
+            margin: 4px 0;
+        }
+
+        .btn-eliminar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #dc3545;
+            font-size: 1.4rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-eliminar:hover {
+            color: #b3001b;
+        }
+
+        .vacio {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 50px;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .btn-finalizar {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-finalizar:hover {
+            background-color: #218838;
+        }

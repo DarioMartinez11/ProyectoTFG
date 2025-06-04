@@ -1,0 +1,86 @@
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            animation: fondoAnimado 15s ease infinite;
+            background: linear-gradient(-45deg, #ffe5e5, #fff6f6, #ffdada, #ffffff);
+            background-size: 400% 400%;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes fondoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        form {
+            max-width: 700px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 6px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .submit-btn {
+            background-color: #e50914;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #b20710;
+        }
+
+        .btn-x {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 22px;
+            color: red;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-x:hover {
+            color: darkred;
+        }
+
+        .imagen-actual {
+            font-size: 14px;
+            margin-top: 6px;
+        }

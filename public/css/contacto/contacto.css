@@ -1,0 +1,108 @@
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            animation: fondoAnimado 15s ease infinite;
+            background: linear-gradient(-45deg, #ffe5e5, #fff6f6, #ffdada, #ffffff);
+            background-size: 400% 400%;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes fondoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        form {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group label,
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+
+        .checkbox-group input,
+        .radio-group input {
+            margin-right: 8px;
+        }
+
+        .submit-btn {
+            background-color: #e50914;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #b20710;
+        }
+
+        .success {
+            text-align: center;
+            color: green;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        #profile-menu a:hover,
+        #profile-menu button:hover {
+            background-color: #f3f3f3;
+        }

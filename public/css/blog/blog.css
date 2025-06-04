@@ -1,0 +1,191 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  animation: fondoAnimado 15s ease infinite;
+  background: linear-gradient(-45deg, #ffe5e5, #fff6f6, #ffdada, #ffffff);
+  background-size: 400% 400%;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes fondoAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background-color: #e50914;
+  margin: 20px auto;
+}
+
+.main-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 70px; /* AUMENTADO para que NUNCA se tape */
+  color: #111;
+}
+
+
+.subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.post-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.btn-read {
+  background-color: #e50914;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 12px;
+}
+
+.btn-read:hover {
+  background-color: #c40812;
+}
+
+.admin-actions {
+  margin-top: 10px;
+}
+
+.admin-actions a,
+.admin-actions form button {
+  font-size: 13px;
+  margin-right: 10px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  padding-bottom: 80px;
+}
+
+/* Grid de posts responsivo */
+.grid-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+/* ===== RESPONSIVE AJUSTES ===== */
+@media (max-width: 768px) {
+  header div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 12px !important;
+    align-items: flex-start;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  main {
+    padding-bottom: 100px !important;
+  }
+
+  .main-title {
+    margin-top: 120px !important;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .btn-read {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .post-title {
+    font-size: 1.1rem;
+  }
+}
