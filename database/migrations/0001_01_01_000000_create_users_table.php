@@ -20,9 +20,9 @@ return new class extends Migration
             $table->date('Fecha_Registro')->nullable();
             $table->timestamps('created_at')->nullable();
             $table->timestamps('updated_at')->nullable();
-            $table->string('email_verification_token', 36)->nullable();
-            $table->timestamps('email_verified_at', 36)->nullable();
-            $table->string('remember_token', 100)->nullable();
+            $table->timestamps('email_verification_token')->nullable();
+            $table->timestamps('email_verified_at')->nullable();
+            $table->remember_token();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
