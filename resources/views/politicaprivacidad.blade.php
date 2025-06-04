@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Política de Privacidad - Pinturas General</title>
-    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/politicaprivacidad/politicaprivacidad.css') }}">
 
 </head>

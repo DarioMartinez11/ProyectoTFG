@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Sobre Nosotros - Pinturas General</title>
-    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/nosotros/nosotros.css') }}">
 
 </head>

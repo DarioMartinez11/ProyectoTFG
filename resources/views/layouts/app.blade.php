@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>@yield('title', 'Pinturas General')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @vite('resources/css/app.css')
 </head>
 <body style="font-family: 'Segoe UI', sans-serif; margin:0; background:#f4f4f4;">
 

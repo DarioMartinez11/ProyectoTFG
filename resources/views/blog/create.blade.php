@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear artículo | Blog</title>
-    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/blog/create.css') }}">
 </head>
 <body>

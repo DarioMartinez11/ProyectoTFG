@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Trabajos | Pinturas General</title>
-    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/trabajos/trabajos.css') }}">
 </head>
 <body>

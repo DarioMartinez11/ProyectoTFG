@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Finalizar compra | Pinturas General</title>
-    @vite('resources/css/app.css')
      <link rel="stylesheet" href="{{ asset('css/checkout/checkout.css') }}">
 
 

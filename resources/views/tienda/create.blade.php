@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear producto | Tienda</title>
-    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/tienda/create.css') }}">
 </head>
 <body>

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ $producto->Nombre }} | Tienda - Pinturas General</title>
-    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/tienda/show.css') }}">
 </head>
 <body>
