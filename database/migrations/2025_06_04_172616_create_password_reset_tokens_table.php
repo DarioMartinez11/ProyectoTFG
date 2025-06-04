@@ -12,11 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email', 255);
+            $table->string('email')->primary();
             $table->string('token', 255);
             $table->timestamps();
-
-            $table->primary('email');
         });
     }
 
