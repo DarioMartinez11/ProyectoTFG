@@ -18,11 +18,10 @@ return new class extends Migration
             $table->string('Contraseña', 255);
             $table->enum('Rol', ['cliente', 'admin']);
             $table->date('Fecha_Registro')->nullable();
-            $table->timestamps('created_at')->nullable();
-            $table->timestamps('updated_at')->nullable();
-            $table->timestamps('email_verification_token')->nullable();
-            $table->timestamps('email_verified_at')->nullable();
+            $table->timestamps();
             $table->remember_token();
+            $table->string('email_verification_token')->nullable();
+            $table->timestamps('email_verified_at')->nullable();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
