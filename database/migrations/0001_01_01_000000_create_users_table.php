@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('Rol', ['cliente', 'admin']);
             $table->date('Fecha_Registro')->nullable();
             $table->timestamps();
-            $table->remember_token();
+            $table->rememberToken();
             $table->string('email_verification_token')->nullable();
             $table->timestamps('email_verified_at')->nullable();
         });
