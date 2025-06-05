@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('Nombre', 100);
             $table->string('Email', 100)->unique();
             $table->string('Contraseña', 255);
-            $table->enum('Rol', ['cliente', 'admin']);
+            $table->enum('Rol', ['user', 'admin'])->default('user');
             $table->date('Fecha_Registro')->nullable();
             $table->string('email_verification_token', 100)->nullable(); // longitud fija
             $table->timestamp('email_verified_at')->nullable(); // timestamp correcto
