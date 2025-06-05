@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('detallecarrito', function (Blueprint $table) {
+        Schema::create('DetalleCarrito', function (Blueprint $table) {
             $table->unsignedBigInteger('ID_Carrito');
             $table->unsignedBigInteger('ID_Producto');
             $table->integer('Cantidad');
