@@ -120,7 +120,7 @@
                     contador.innerText = `(${cantidadActual})`;
                 }
             } else {
-                alert("❌ Error al añadir al carrito.");
+                alert("❌ Error al añadir al carrito. Debes iniciar sesión.");
             }
         })
         .catch(() => alert("❌ Fallo de conexión."));
