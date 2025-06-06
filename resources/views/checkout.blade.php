@@ -130,51 +130,11 @@
 
 
 <script>
-    document.getElementById('form-pedido').addEventListener('submit', function (e) {
-        const requiredFields = this.querySelectorAll('input[required]');
-        let valid = true;
-        let firstInvalid = null;
+    const form = document.getElementById('form-pedido');
+    const tarjetaInput = document.querySelector('input[name="tarjeta"]');
 
-        requiredFields.forEach(input => {
-            input.classList.remove('error');
-
-            const pattern = input.getAttribute('pattern');
-            if (pattern && !(new RegExp(pattern).test(input.value.trim()))) {
-                input.classList.add('error');
-                valid = false;
-                if (!firstInvalid) firstInvalid = input;
-            } else if (!input.value.trim()) {
-                input.classList.add('error');
-                valid = false;
-                if (!firstInvalid) firstInvalid = input;
-            }
-        });
-
-        if (!valid) {
-            e.preventDefault();
-            alert('⚠️ Revisa los campos: deben cumplir con los requisitos mínimos.');
-            firstInvalid.focus();
-        }
-    });
-     const tarjetaInput = document.querySelector('input[name="tarjeta"]');
-
-    tarjetaInput.addEventListener('input', () => {
-        const valor = tarjetaInput.value.replace(/\s+/g, '');
-        if (valor.length >= 13 && valor.length <= 19) {
-            tarjetaInput.setCustomValidity(""); // ✅ válido
-        } else {
-            tarjetaInput.setCustomValidity("Debe tener entre 13 y 19 dígitos.");
-        }
-    });
-
-    // (Opcional) Formatear visualmente el número con espacios
-    tarjetaInput.addEventListener('input', (e) => {
-        let val = e.target.value.replace(/\D/g, '').substring(0, 19);
-        val = val.replace(/(.{4})/g, '$1 ').trim();
-        e.target.value = val;
-    });
-
-     document.getElementById('form-pedido').addEventListener('submit', function (e) {
+    // Validación al enviar el formulario
+    form.addEventListener('submit', function (e) {
         const requiredFields = this.querySelectorAll('input[required]');
         let valid = true;
         let firstInvalid = null;
@@ -182,18 +142,22 @@
         requiredFields.forEach(input => {
             input.classList.remove('error');
             const pattern = input.getAttribute('pattern');
-            if (pattern && !(new RegExp(pattern).test(input.value.trim()))) {
-                input.setCustomValidity("Campo inválido.");
-                input.reportValidity();
-                valid = false;
-                if (!firstInvalid) firstInvalid = input;
-            } else if (!input.value.trim()) {
+            const value = input.value.trim();
+
+            if (!value) {
                 input.setCustomValidity("Este campo es obligatorio.");
                 input.reportValidity();
+                input.classList.add('error');
+                valid = false;
+                if (!firstInvalid) firstInvalid = input;
+            } else if (pattern && !(new RegExp(pattern).test(value))) {
+                input.setCustomValidity("Campo inválido.");
+                input.reportValidity();
+                input.classList.add('error');
                 valid = false;
                 if (!firstInvalid) firstInvalid = input;
             } else {
-                input.setCustomValidity(""); // limpiar
+                input.setCustomValidity("");
             }
         });
 
@@ -203,22 +167,23 @@
         }
     });
 
-    const tarjetaInput = document.querySelector('input[name="tarjeta"]');
+    // Validación y formato dinámico del número de tarjeta
+    if (tarjetaInput) {
+        tarjetaInput.addEventListener('input', (e) => {
+            let val = e.target.value.replace(/\D/g, '').substring(0, 19);
+            val = val.replace(/(.{4})/g, '$1 ').trim();
+            e.target.value = val;
 
-    tarjetaInput.addEventListener('input', (e) => {
-        let val = e.target.value.replace(/\D/g, '').substring(0, 19);
-        val = val.replace(/(.{4})/g, '$1 ').trim();
-        e.target.value = val;
-
-        const valorNumerico = val.replace(/\s/g, '');
-        if (valorNumerico.length >= 13 && valorNumerico.length <= 19) {
-            tarjetaInput.setCustomValidity("");
-        } else {
-            tarjetaInput.setCustomValidity("Debe tener entre 13 y 19 dígitos.");
-        }
-    });
-    
+            const valorNumerico = val.replace(/\s/g, '');
+            if (valorNumerico.length >= 13 && valorNumerico.length <= 19) {
+                tarjetaInput.setCustomValidity("");
+            } else {
+                tarjetaInput.setCustomValidity("Debe tener entre 13 y 19 dígitos.");
+            }
+        });
+    }
 </script>
+
 
 </body>
 </html>
