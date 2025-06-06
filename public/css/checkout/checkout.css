@@ -141,6 +141,56 @@ footer {
 a {
     text-decoration: none;
 }
+/* 🔽 Compactar inputs y tarjeta un poco más */
+.formulario {
+    padding: 16px;
+}
+
+.grid-form {
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+}
+
+.form-group input {
+    padding: 6px;
+    font-size: 0.85rem;
+}
+
+
+.btn-pedido {
+    margin-top: 16px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.tarjeta-visual {
+    max-width: 350px !important;
+    height: 185px !important;
+    padding: 18px !important;
+}
+
+.tarjeta-visual input {
+    font-size: 0.85rem !important;
+    padding: 5px 6px !important;
+}
+
+/* 🧠 Asegurar que todo encaje en pantallas bajas */
+@media (max-height: 850px) {
+    .container {
+        margin-top: 16px;
+    }
+    .formulario {
+        padding: 14px;
+    }
+    footer {
+        position: static;
+        margin-top: 12px;
+    }
+}
 
 /* 📱 Diseño responsivo */
 @media (max-width: 768px) {

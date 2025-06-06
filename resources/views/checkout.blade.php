@@ -103,23 +103,22 @@
                 </div>
             </fieldset>
 
-            <fieldset>
-                <legend>Datos de la tarjeta</legend>
-                <div class="grid-form">
-                    <div class="form-group">
-                        <label for="tarjeta">Número de tarjeta</label>
-                        <input type="text" name="tarjeta" pattern="\d{13,19}" title="Debe contener entre 13 y 19 dígitos" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="expiracion">Fecha de expiración</label>
-                        <input type="text" name="expiracion" placeholder="MM/AA" pattern="^(0[1-9]|1[0-2])\/\d{2}$" title="Formato válido: MM/AA" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cvv">CVV</label>
-                        <input type="text" name="cvv" pattern="\d{3}" title="Debe contener exactamente 3 dígitos" required>
-                    </div>
-                </div>
-            </fieldset>
+<fieldset>
+    <legend>Datos de la tarjeta</legend>
+
+    <div style="position: relative; width: 100%; max-width: 320px; height: 180px; background: linear-gradient(135deg, #3b3b98, #182C61); color: white; border-radius: 14px; padding: 16px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); overflow: hidden;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" style="width: 50px; position: absolute; top: 16px; right: 16px;">
+
+        <input type="text" name="tarjeta" id="input-tarjeta" placeholder="Número de tarjeta" maxlength="19"
+            style="position: absolute; top: 70px; left: 16px; width: 88%; padding: 8px; font-size: 1rem; border: none; border-radius: 6px; background: rgba(255,255,255,0.15); color: white; outline: none;" required pattern="\d{13,19}">
+
+        <input type="text" name="expiracion" placeholder="MM/AA" maxlength="5"
+            style="position: absolute; bottom: 16px; left: 16px; width: 45%; padding: 8px; font-size: 0.9rem; border: none; border-radius: 6px; background: rgba(255,255,255,0.15); color: white; outline: none;" required pattern="^(0[1-9]|1[0-2])\/\d{2}$">
+
+        <input type="text" name="cvv" placeholder="CVV" maxlength="3"
+            style="position: absolute; bottom: 16px; right: 16px; width: 30%; padding: 8px; font-size: 0.9rem; border: none; border-radius: 6px; background: rgba(255,255,255,0.15); color: white; outline: none;" required pattern="\d{3}">
+    </div>
+</fieldset>
 
             <button type="submit" class="btn-pedido">💳 Confirmar pedido</button>
         </form>
@@ -157,6 +156,68 @@
             firstInvalid.focus();
         }
     });
+     const tarjetaInput = document.querySelector('input[name="tarjeta"]');
+
+    tarjetaInput.addEventListener('input', () => {
+        const valor = tarjetaInput.value.replace(/\s+/g, '');
+        if (valor.length >= 13 && valor.length <= 19) {
+            tarjetaInput.setCustomValidity(""); // ✅ válido
+        } else {
+            tarjetaInput.setCustomValidity("Debe tener entre 13 y 19 dígitos.");
+        }
+    });
+
+    // (Opcional) Formatear visualmente el número con espacios
+    tarjetaInput.addEventListener('input', (e) => {
+        let val = e.target.value.replace(/\D/g, '').substring(0, 19);
+        val = val.replace(/(.{4})/g, '$1 ').trim();
+        e.target.value = val;
+    });
+
+     document.getElementById('form-pedido').addEventListener('submit', function (e) {
+        const requiredFields = this.querySelectorAll('input[required]');
+        let valid = true;
+        let firstInvalid = null;
+
+        requiredFields.forEach(input => {
+            input.classList.remove('error');
+            const pattern = input.getAttribute('pattern');
+            if (pattern && !(new RegExp(pattern).test(input.value.trim()))) {
+                input.setCustomValidity("Campo inválido.");
+                input.reportValidity();
+                valid = false;
+                if (!firstInvalid) firstInvalid = input;
+            } else if (!input.value.trim()) {
+                input.setCustomValidity("Este campo es obligatorio.");
+                input.reportValidity();
+                valid = false;
+                if (!firstInvalid) firstInvalid = input;
+            } else {
+                input.setCustomValidity(""); // limpiar
+            }
+        });
+
+        if (!valid) {
+            e.preventDefault();
+            firstInvalid.focus();
+        }
+    });
+
+    const tarjetaInput = document.querySelector('input[name="tarjeta"]');
+
+    tarjetaInput.addEventListener('input', (e) => {
+        let val = e.target.value.replace(/\D/g, '').substring(0, 19);
+        val = val.replace(/(.{4})/g, '$1 ').trim();
+        e.target.value = val;
+
+        const valorNumerico = val.replace(/\s/g, '');
+        if (valorNumerico.length >= 13 && valorNumerico.length <= 19) {
+            tarjetaInput.setCustomValidity("");
+        } else {
+            tarjetaInput.setCustomValidity("Debe tener entre 13 y 19 dígitos.");
+        }
+    });
+    
 </script>
 
 </body>
