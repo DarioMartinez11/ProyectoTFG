@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
 }
 
+/* ===== HEADER ===== */
 header {
     background-color: #e50914;
     color: white;
@@ -31,6 +32,7 @@ nav a {
     font-weight: 500;
 }
 
+/* ===== CONTAINER ===== */
 .container {
     display: flex;
     justify-content: space-between;
@@ -41,16 +43,18 @@ nav a {
     width: 100%;
 }
 
+/* ===== PRODUCTOS Y FORMULARIO ===== */
 .productos, .formulario {
     display: flex;
     flex-direction: column;
-    padding: 30px;
+    padding: 16px;
     background: white;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     border-radius: 12px;
     width: 47.5%;
 }
 
+/* ===== TITULOS ===== */
 .productos h2, .formulario h2 {
     color: #e50914;
     margin-bottom: 20px;
@@ -58,6 +62,14 @@ nav a {
     padding-bottom: 10px;
 }
 
+.formulario legend {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #e50914;
+    margin-bottom: 10px;
+}
+
+/* ===== PRODUCTOS ===== */
 .producto {
     display: flex;
     gap: 16px;
@@ -73,22 +85,16 @@ nav a {
     border-radius: 8px;
 }
 
+/* ===== FORMULARIO ===== */
 .formulario fieldset {
     border: none;
-    margin-bottom: 25px;
-}
-
-.formulario legend {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #e50914;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 .grid-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 6px;
 }
 
 .form-group {
@@ -97,12 +103,15 @@ nav a {
 }
 
 .form-group label {
+    font-size: 0.72rem;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 2px;
 }
 
 .form-group input {
-    padding: 10px;
+    padding: 4px 6px;
+    font-size: 0.75rem;
+    height: 28px;
     border: 1px solid #ccc;
     border-radius: 6px;
     transition: border 0.3s;
@@ -112,16 +121,29 @@ nav a {
     border-color: red;
 }
 
+/* ===== TARJETA VISUAL ===== */
+.tarjeta-visual {
+    max-width: 270px !important;
+    height: 135px !important;
+    padding: 10px !important;
+}
+
+.tarjeta-visual input {
+    font-size: 0.78rem !important;
+    padding: 5px !important;
+}
+
+/* ===== BOTÓN ===== */
 .btn-pedido {
-    margin-top: 40px;
+    margin-top: 16px;
     background-color: #28a745;
     color: white;
-    padding: 14px;
+    padding: 10px;
     width: 100%;
     border: none;
     border-radius: 6px;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     transition: background 0.3s;
 }
 
@@ -129,6 +151,7 @@ nav a {
     background-color: #218838;
 }
 
+/* ===== FOOTER ===== */
 footer {
     background-color: #1a1a1a;
     color: white;
@@ -138,53 +161,18 @@ footer {
     margin-top: auto;
 }
 
+/* ===== ENLACES ===== */
 a {
     text-decoration: none;
 }
-/* 🔽 Compactar inputs y tarjeta un poco más */
-.formulario {
-    padding: 16px;
-}
 
-.grid-form {
-    gap: 10px;
-}
-
-.form-group label {
-    font-size: 0.8rem;
-    margin-bottom: 3px;
-}
-
-.form-group input {
-    padding: 6px;
-    font-size: 0.85rem;
-}
-
-/* Botón más delgado */
-.btn-pedido {
-    margin-top: 16px;
-    padding: 10px;
-    font-size: 14px;
-}
-
-.tarjeta-visual {
-    max-width: 290px !important;
-    height: 145px !important;
-    padding: 12px !important;
-}
-
-.tarjeta-visual input {
-    font-size: 0.85rem !important;
-    padding: 5px 6px !important;
-}
-
-/* 🧠 Asegurar que todo encaje en pantallas bajas */
+/* ===== RESPONSIVE ALTURA BAJA ===== */
 @media (max-height: 850px) {
     .container {
         margin-top: 16px;
     }
     .formulario {
-        padding: 14px;
+        padding: 12px;
     }
     footer {
         position: static;
@@ -192,7 +180,7 @@ a {
     }
 }
 
-/* 📱 Diseño responsivo */
+/* ===== RESPONSIVE MÓVIL ===== */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
