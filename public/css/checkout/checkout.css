@@ -160,7 +160,7 @@ a {
     font-size: 0.85rem;
 }
 
-
+/* Botón más delgado */
 .btn-pedido {
     margin-top: 16px;
     padding: 10px;
@@ -168,9 +168,9 @@ a {
 }
 
 .tarjeta-visual {
-    max-width: 350px !important;
-    height: 185px !important;
-    padding: 18px !important;
+    max-width: 290px !important;
+    height: 145px !important;
+    padding: 12px !important;
 }
 
 .tarjeta-visual input {
