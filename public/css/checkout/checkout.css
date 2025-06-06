@@ -54,6 +54,12 @@ nav a {
     width: 47.5%;
 }
 
+/* IMPORTANTE para evitar scroll excesivo en despliegues */
+.formulario {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
 /* ===== TITULOS ===== */
 .productos h2, .formulario h2 {
     color: #e50914;
@@ -166,17 +172,36 @@ a {
     text-decoration: none;
 }
 
-/* ===== RESPONSIVE ALTURA BAJA ===== */
+/* ===== RESPONSIVE ALTURA BAJA (despliegue) ===== */
 @media (max-height: 850px) {
     .container {
         margin-top: 16px;
     }
     .formulario {
         padding: 12px;
+        max-height: 90vh;
     }
     footer {
         position: static;
         margin-top: 12px;
+    }
+    .form-group input {
+        font-size: 0.7rem;
+        height: 26px;
+        padding: 4px;
+    }
+    .tarjeta-visual {
+        max-width: 250px !important;
+        height: 125px !important;
+        padding: 8px !important;
+    }
+    .tarjeta-visual input {
+        font-size: 0.7rem !important;
+        padding: 4px !important;
+    }
+    .btn-pedido {
+        font-size: 13px;
+        padding: 8px;
     }
 }
 
