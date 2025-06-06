@@ -1,3 +1,4 @@
+/* ====== BASE GENERAL ====== */
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -7,13 +8,39 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-bottom: 70px; /* espacio para el footer */
+    box-sizing: border-box;
 }
 
+
+a {
+    text-decoration: none;
+}
+.pantalla-unica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 40px; /* Aquí se define padding arriba/abajo y a los lados */
+    max-width: 1200px;  /* Reduce el ancho para dejar más espacio lateral */
+    margin: 140px auto 0 auto;
+}
+
+
+
+/* ====== ENCABEZADO ====== */
 header {
     background-color: #e50914;
     color: white;
     padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 
 header h1 {
     margin: 0;
@@ -24,15 +51,15 @@ nav a {
     color: white;
     text-decoration: none;
     padding: 10px 14px;
-    font-weight: 500;
     transition: background 0.2s;
 }
 
 nav a:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
 }
 
+/* ====== TÍTULO PRINCIPAL ====== */
 .titulo {
     font-size: 2.2rem;
     text-align: center;
@@ -40,6 +67,7 @@ nav a:hover {
     font-weight: bold;
 }
 
+/* ====== CONTENEDOR PRINCIPAL ====== */
 .main-container {
     display: flex;
     justify-content: space-between;
@@ -59,12 +87,18 @@ nav a:hover {
     justify-content: flex-end;
 }
 
+.titulo {
+    margin-top: 130px; /* antes era 40px */
+}
+
+
+/* ====== GALERÍA DE IMÁGENES ====== */
 .image-grid {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: nowrap; 
-    overflow-x: auto;   
+    flex-wrap: nowrap;
+    overflow-x: auto;
     margin-bottom: 30px;
 }
 
@@ -81,7 +115,7 @@ nav a:hover {
     background: white;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     width: 100%;
     max-width: 360px;
     text-align: center;
@@ -92,17 +126,38 @@ nav a:hover {
     border-radius: 8px;
 }
 
+.image-label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* ====== INFORMACIÓN DEL PROYECTO ====== */
 .info {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
-.info .descripcion-scroll {
+.project-details {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.project-details li {
+    margin-bottom: 8px;
+}
+
+.descripcion-wrapper {
+    margin-top: 10px;
+}
+
+.descripcion-scroll {
     max-height: 150px;
     overflow-y: auto;
     white-space: pre-wrap;
@@ -110,18 +165,17 @@ nav a:hover {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    margin-top: 8px;
-    width: 100%;
     box-sizing: border-box;
     word-break: break-word;
     overflow-wrap: break-word;
 }
 
+/* ====== COMENTARIOS ====== */
 .comentarios {
     background: white;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     width: 100%;
     max-width: 400px;
     display: flex;
@@ -138,23 +192,67 @@ nav a:hover {
     border: 1px solid #ccc;
 }
 
+.comment-form select {
+    margin: 8px 0;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background: #e50914;
+    color: white;
+    margin-top: 10px;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    margin-top: 10px;
+}
+
+.status-message {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.status-message.success {
+    color: green;
+}
+
+.status-message.error {
+    color: red;
+}
+
 .comentario {
     margin-top: 20px;
     padding-top: 10px;
     border-top: 1px solid #ddd;
 }
 
-footer {
-    background-color: #1a1a1a;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 14px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.comment-date {
+    display: block;
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
 }
 
+.no-comments,
+.login-message {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* ====== BOTÓN CERRAR ====== */
 .btn-cerrar-global {
     position: absolute;
     top: 100px;
@@ -173,6 +271,136 @@ footer {
     color: #a2060f;
 }
 
+.pantalla-unica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.galeria-fija {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.imagen-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.imagen-wrap img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+}
+
+.etiqueta {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+/* Bloque de texto */
+.panel-informativo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.info-proyecto, .comentarios-panel {
+    flex: 1 1 45%;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
+
+.info-proyecto h2 {
+    margin-top: 0;
+    font-size: 1.6rem;
+}
+
+.info-proyecto ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+}
+
+.info-proyecto ul li {
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+
+.descripcion p {
+    background: #f8f8f8;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+/* Comentarios */
+.comentarios-panel h3 {
+    margin-top: 0;
+}
+
+.comentarios-panel textarea,
+.comentarios-panel select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.btn-submit, .btn-delete {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background-color: #e50914;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.comentario {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.login-message {
+    font-style: italic;
+    color: #555;
+}
+
+
+
+/* ====== ANIMACIONES ====== */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -183,7 +411,32 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+.rating-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    gap: 5px;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
 
+.rating-container input[type="radio"] {
+    display: none;
+}
+
+.rating-container label {
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.rating-container input[type="radio"]:checked ~ label,
+.rating-container label:hover,
+.rating-container label:hover ~ label {
+    color: #ffc107; /* amarillo dorado */
+}
+
+/* ====== BOTÓN DE FONDO CAMBIANTE ====== */
 #cambiarFondoBtn {
     position: fixed;
     bottom: 80px;
@@ -193,7 +446,7 @@ footer {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
 }
 
@@ -208,11 +461,21 @@ footer {
     transform: rotate(360deg);
 }
 
-a {
-    text-decoration: none;
+/* ====== PIE DE PÁGINA ====== */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
 }
 
-/* Responsive */
+
+/* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
     .main-container {
         flex-direction: column;
@@ -228,4 +491,6 @@ a {
         flex-direction: column;
         align-items: center;
     }
+    
+    
 }

@@ -76,7 +76,7 @@ style="display: block;
               color: #444;
               border-bottom: 1px solid #eee;
               transition: background 0.3s ease;">
-         🔒 Cerrar sesión
+         🔒 Cerrar sesión / Iniciar sesión
      </a>
 
 

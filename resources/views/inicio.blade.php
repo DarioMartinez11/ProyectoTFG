@@ -8,29 +8,72 @@
 </head>
 <body class="bg-white text-black">
 
-<header style="background-color: #e50914; color: white; padding: 16px;">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-        <h1 style="font-size: 20px; font-weight: bold;">PINTURAS GENERAL</h1>
-        <div style="display: flex; gap: 20px; align-items: center;">
-            <div style="display: flex; gap: 10px;">
-               <a href="https://www.facebook.com/share/1CAt5m8ubn/" target="_blank">
+<header style="background-color: #e50914; color: white; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <h1 style="font-size: 22px; font-weight: bold; margin: 0;">PINTURAS GENERAL</h1>
+
+        <div style="display: flex; gap: 10px; align-items: center; position: relative;">
+            <a href="https://www.facebook.com/share/1CAt5m8ubn/" target="_blank">
               <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" style="width: 24px; height: 24px;">
                  </a>
-
-                <a href="https://www.instagram.com/paquitopinturas" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" style="width: 24px; height: 24px;">
-                </a>
-            </div>
-            <div style="position: relative;">
+            <a href="https://www.instagram.com/paquitopinturas" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 24px;">
+            </a>
+            <a href="{{ route('carrito.index') }}" style="margin-left: 10px; font-size: 18px; color: white;">
+                🛒Carrito @if(isset($totalCarrito) && $totalCarrito > 0) ({{ $totalCarrito }}) @endif
+            </a>
+            <div style="position: relative; margin-left: 10px;">
                 <button onclick="toggleMenu()" style="background: none; border: none; cursor: pointer;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" style="width: 32px; height: 32px; border-radius: 50%; background: white; padding: 2px;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Perfil" style="width: 30px; height: 30px; border-radius: 50%; background: white; padding: 2px;">
                 </button>
-                <div id="profile-menu"
-                     style="display: none; position: absolute; right: 0; top: 42px; background: white; box-shadow: 0 8px 16px rgba(0,0,0,0.15); border-radius: 10px; overflow: hidden; z-index: 100; min-width: 180px; font-size: 14px; font-weight: 500; color: #444;">
-                    <a href="{{ route('privacidad') }}">⚙️ Privacidad</a>
-                    <a href="{{ route('politicaprivacidad') }}">📄 Política de Privacidad</a>
-                    <a href="{{ route('logout') }}">🔒 Cerrar sesión</a>
-                </div>
+<div id="profile-menu"
+     style="display: none;
+            position: absolute;
+            right: 0;
+            top: 42px;
+            background: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 100;
+            min-width: 180px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #444;"> <!-- Negro más claro -->
+
+    <a href="{{ route('privacidad') }}"
+       style="display: block;
+              padding: 10px 15px;
+              text-decoration: none;
+              color: #444;
+              border-bottom: 1px solid #eee;
+              transition: background 0.3s ease;">
+        ⚙️ Privacidad
+    </a>
+
+    <a href="{{ route('politicaprivacidad') }}"
+       style="display: block;
+              padding: 10px 15px;
+              text-decoration: none;
+              color: #444;
+              border-bottom: 1px solid #eee;
+              transition: background 0.3s ease;">
+        📄 Política de Privacidad
+    </a>
+
+<a href="{{ route('logout') }}" 
+style="display: block;
+              padding: 10px 15px;
+              text-decoration: none;
+              color: #444;
+              border-bottom: 1px solid #eee;
+              transition: background 0.3s ease;">
+         🔒 Cerrar sesión / Iniciar sesión
+     </a>
+
+
+</div>
+
             </div>
         </div>
     </div>

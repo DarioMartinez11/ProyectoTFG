@@ -17,43 +17,61 @@
 </header>
 
 <h2 class="titulo">{{ $producto->Nombre }}</h2>
-
 <main class="main-container">
-    <div class="product-card">
-        <div class="product-content">
+    <div class="product-card fancy-card">
+        <div class="product-image-section">
             @if ($producto->imagenes->count())
-                <div class="carousel-container">
-                    <div class="carousel" id="carousel">
-                        @foreach ($producto->imagenes as $img)
-                            <img src="{{ asset($img->ruta) }}" alt="Imagen de {{ $producto->Nombre }}">
-                        @endforeach
+                <div class="main-image-wrapper large-image">
+                    <div class="carousel-container">
+                        <div class="carousel" id="carousel">
+                            @foreach ($producto->imagenes as $img)
+                                <img src="{{ asset($img->ruta) }}" alt="Imagen de {{ $producto->Nombre }}">
+                            @endforeach
+                        </div>
+                        @if ($producto->imagenes->count() > 1)
+                            <button class="prev" onclick="moverCarrusel(-1)">❮</button>
+                            <button class="next" onclick="moverCarrusel(1)">❯</button>
+                        @endif
                     </div>
-                    @if ($producto->imagenes->count() > 1)
-                        <button class="prev" onclick="moverCarrusel(-1)">❮</button>
-                        <button class="next" onclick="moverCarrusel(1)">❯</button>
-                    @endif
                 </div>
             @else
                 <div class="no-image">Sin imagen</div>
             @endif
+        </div>
 
-            <div class="product-info">
-                <p><strong>Descripción:</strong></p>
+        <div class="product-info-section">
+            <!-- Eliminamos el título duplicado -->
+
+            <div class="product-description-block">
+                <p class="label">📝 Descripción:</p>
                 <div class="descripcion-scroll">{{ $producto->Descripcion }}</div>
-                <p><strong>Categoría:</strong> {{ ucfirst($producto->Categoria) }}</p>
-                <p><strong>Stock disponible:</strong> {{ $producto->Stock }}</p>
-                <p class="price">💶 {{ number_format($producto->Precio, 2) }} €</p>
             </div>
-        </div>
 
-        <div class="actions botones-abajo">
-            <button onclick="agregarAlCarrito({{ $producto->ID_Producto }})" class="btn-carrito">➕ Añadir al carrito</button>
-            <a href="{{ route('tienda.index') }}" class="btn-volver">⬅ Volver a tienda</a>
-        </div>
+            <div class="product-meta">
+                <p class="label">📂 Categoría:</p>
+                <a href="{{ url('/tienda/categoria/' . Str::slug($producto->Categoria)) }}" class="badge">
+               {{ ucfirst($producto->Categoria) }}
+                </a>
 
-        <div id="mensaje-exito"><span style="font-size: 1.4rem;"></span></div>
+
+                <p class="label">📦 Stock disponible:</p>
+                <span class="stock">{{ $producto->Stock }}</span>
+            </div>
+
+            <div class="product-price">
+                <span>💶 {{ number_format($producto->Precio, 2) }} €</span>
+            </div>
+
+            <div class="actions botones-abajo">
+                <button onclick="agregarAlCarrito({{ $producto->ID_Producto }})" class="btn-carrito">➕ Añadir al carrito</button>
+                <a href="{{ route('tienda.index') }}" class="btn-volver">⬅ Volver a tienda</a>
+            </div>
+
+            <div id="mensaje-exito"><span style="font-size: 1.4rem;"></span></div>
+        </div>
     </div>
 </main>
+
 
 <footer>
     &copy; {{ date('Y') }} Pinturas General — Francisco Martinez de Asís
@@ -64,13 +82,15 @@
 </button>
 
 <script>
-    let index = 0;
-    function moverCarrusel(direccion) {
-        const carrusel = document.getElementById('carousel');
-        const total = carrusel.children.length;
-        index = (index + direccion + total) % total;
-        carrusel.style.transform = `translateX(-${index * 280}px)`;
-    }
+ let index = 0;
+
+function moverCarrusel(direccion) {
+    const carrusel = document.getElementById('carousel');
+    const total = carrusel.children.length;
+
+    index = (index + direccion + total) % total;
+    carrusel.style.transform = `translateX(-${index * 100}%)`;
+}
 
     function cambiarFondo() {
         const colores = ['#f4f4f4', '#fceae8', '#eaf7fc', '#e8fce9', '#fff9e6'];
