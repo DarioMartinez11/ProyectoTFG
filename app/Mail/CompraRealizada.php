@@ -4,6 +4,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CompraRealizada extends Mailable
 {
@@ -18,9 +19,17 @@ class CompraRealizada extends Mailable
         $this->productos = $productos;
     }
 
-    public function build()
-    {
-        return $this->subject('🧾 Confirmación de compra - Pinturas General')
-                    ->view('emails.compra');
-    }
+  public function build()
+{
+    $pdf = Pdf::loadView('pdf.pedido', [
+        'datos' => $this->datos,
+        'productos' => $this->productos,
+    ]);
+
+    return $this->subject('🧾 Confirmación de compra - Pinturas General')
+                ->view('emails.compra')
+                ->attachData($pdf->output(), 'pedido.pdf', [
+                    'mime' => 'application/pdf',
+                ]);
+}
 }
