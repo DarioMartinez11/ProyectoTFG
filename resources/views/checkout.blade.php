@@ -110,7 +110,7 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" style="width: 50px; position: absolute; top: 16px; right: 16px;">
 
         <input type="text" name="tarjeta" id="input-tarjeta" placeholder="Número de tarjeta" maxlength="19"
-            style="position: absolute; top: 70px; left: 16px; width: 88%; padding: 8px; font-size: 1rem; border: none; border-radius: 6px; background: rgba(255,255,255,0.15); color: white; outline: none;" required pattern="\d{13,19}">
+            style="position: absolute; top: 70px; left: 16px; width: 88%; padding: 8px; font-size: 1rem; border: none; border-radius: 6px; background: rgba(255,255,255,0.15); color: white; outline: none;" required pattern="^(\d{4}\s){3}\d{4}$">
 
         <input type="text" name="expiracion" placeholder="MM/AA" maxlength="5"
             style="position: absolute; bottom: 16px; left: 16px; width: 45%; padding: 8px; font-size: 0.9rem; border: none; border-radius: 6px; background: rgba(255,255,255,0.15); color: white; outline: none;" required pattern="^(0[1-9]|1[0-2])\/\d{2}$">
@@ -133,7 +133,6 @@
     const form = document.getElementById('form-pedido');
     const tarjetaInput = document.querySelector('input[name="tarjeta"]');
 
-    // Validación al enviar el formulario
     form.addEventListener('submit', function (e) {
         const requiredFields = this.querySelectorAll('input[required]');
         let valid = true;
@@ -161,13 +160,18 @@
             }
         });
 
+        // 🧼 Limpia los espacios del número de tarjeta antes de enviar
+        if (tarjetaInput) {
+            tarjetaInput.value = tarjetaInput.value.replace(/\s/g, '');
+        }
+
         if (!valid) {
             e.preventDefault();
             firstInvalid.focus();
         }
     });
 
-    // Validación y formato dinámico del número de tarjeta
+    // 🎯 Formato dinámico con espacios cada 4 dígitos
     if (tarjetaInput) {
         tarjetaInput.addEventListener('input', (e) => {
             let val = e.target.value.replace(/\D/g, '').substring(0, 19);
@@ -183,6 +187,7 @@
         });
     }
 </script>
+
 
 
 </body>
