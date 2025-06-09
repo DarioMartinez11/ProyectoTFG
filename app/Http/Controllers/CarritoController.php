@@ -72,14 +72,10 @@ public function agregar($id)
 
         if (!$carrito) return redirect()->back()->with('error', 'Carrito no encontrado');
 
-        $detalle = DetalleCarrito::where('ID_Carrito', $carrito->ID_Carrito)
-                                ->where('ID_Producto', $id)
-                                ->first();
+       DetalleCarrito::where('ID_Carrito', $carrito->ID_Carrito)
+              ->where('ID_Producto', $id)
+              ->update(['Cantidad' => $request->cantidad]);
 
-        if ($detalle) {
-            $detalle->Cantidad = $request->cantidad;
-            $detalle->save();
-        }
 
         return redirect()->back()->with('success', 'Cantidad actualizada');
     }
