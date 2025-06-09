@@ -186,6 +186,28 @@
             }
         });
     }
+    //  Formato de expiración MM/AA
+        const expiracionInput = document.querySelector('input[name="expiracion"]');
+
+    if (expiracionInput) {
+        expiracionInput.addEventListener('input', (e) => {
+            let valor = e.target.value.replace(/\D/g, ''); // Elimina todo lo que no sea dígito
+
+            if (valor.length > 2) {
+                valor = valor.slice(0, 2) + '/' + valor.slice(2, 4); // Inserta "/"
+            }
+
+            e.target.value = valor.slice(0, 5); // Limita a 5 caracteres
+
+            const patron = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            if (patron.test(e.target.value)) {
+                expiracionInput.setCustomValidity("");
+            } else {
+                expiracionInput.setCustomValidity("Formato inválido. Usa MM/AA");
+            }
+        });
+    }
+
 </script>
 
 
