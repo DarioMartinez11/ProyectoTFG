@@ -106,9 +106,9 @@ style="display: block;
 
 {{-- Contenido --}}
 <main style="padding: 40px 20px 120px;">
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; max-width: 880px; margin: auto;">
         @foreach ($proyectos as $proyecto)
-            <div style="width: 200px; text-align: center; border: 1px solid #ccc; padding: 12px; background-color: white;" class="fade-in">
+            <div style="text-align: center; border: 1px solid #ccc; padding: 12px; background-color: white;" class="fade-in">
                 <a href="{{ route('trabajos.show', $proyecto->ID_Proyecto) }}" style="text-decoration: none; color: inherit;">
                     <div style="background-color: #eee; height: 120px; overflow: hidden;">
                         @if ($proyecto->ImagenAntes)
@@ -135,6 +135,7 @@ style="display: block;
         @endforeach
     </div>
 </main>
+
 
 {{-- Footer --}}
 <footer style="
