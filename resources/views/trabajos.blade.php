@@ -91,7 +91,7 @@ style="display: block;
 </header>
 
 {{-- Filtros de categoría --}}
-<nav id="categorias">
+<nav id="categorias" style="position: sticky; top: 0; z-index: 99; background-color: #ffe6e6; padding: 10px 0;">
     <a href="{{ route('trabajos') }}" class="{{ request()->routeIs('trabajos') ? 'active' : '' }}">🔁 Ver todos</a>
     <a href="{{ route('trabajos.categoria', 'interior') }}" class="{{ (isset($categoria) && $categoria === 'interior') ? 'active' : '' }}">🖌 Interior</a>
     <a href="{{ route('trabajos.categoria', 'fachadas') }}" class="{{ (isset($categoria) && $categoria === 'fachadas') ? 'active' : '' }}">🏠 Fachadas</a>

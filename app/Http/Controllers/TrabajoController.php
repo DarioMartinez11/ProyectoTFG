@@ -10,7 +10,7 @@ class TrabajoController extends Controller
 {
     public function index()
     {
-        $proyectos = Proyecto::with('comentarios')->inRandomOrder()->take(6)->get();
+        $proyectos = Proyecto::with('comentarios')->inRandomOrder()->take(70)->get();
 
         foreach ($proyectos as $proyecto) {
             $proyecto->media_valoracion = $proyecto->comentarios->avg('Valoracion');
