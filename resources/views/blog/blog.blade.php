@@ -89,7 +89,7 @@
      style="display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.4); backdrop-filter: blur(8px); z-index: 1000;">
 
       <div style="background: white; width: 90%; max-width: 800px; margin: 60px auto; border-radius: 12px; padding: 30px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: fadeIn 0.3s ease-in-out; max-height: 90vh; overflow-y: auto;">
-        <button onclick="cerrarConsejo()" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 22px; font-weight: bold; cursor: pointer; color: #999;">&times;</button>
+        <button onclick="cerrarConsejo()" style="position: absolute; top: 80px; right: 15px; background: none; border: none; font-size: 22px; font-weight: bold; cursor: pointer; color: #999;">&times;</button>
         <div id="consejoContent" style="padding-bottom: 20px;"></div>
       </div>
     </div>
