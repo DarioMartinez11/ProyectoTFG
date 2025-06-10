@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>{{ $proyecto->Titulo }} | Pinturas General</title>
     <link rel="stylesheet" href="{{ asset('css/trabajos/show.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
 <header style="background-color: #e50914; color: white; padding: 20px;">
@@ -52,8 +54,11 @@
 
 
 
-<h2 class="titulo fade-in">{{ $proyecto->Titulo }}</h2>
-<a href="{{ route('trabajos') }}" class="btn-cerrar-global" title="Cerrar">✖</a>
+<div class="titulo-con-cierre fade-in">
+  <h2 class="titulo">{{ $proyecto->Titulo }}</h2>
+  <a href="{{ route('trabajos') }}" class="btn-cerrar-inline" title="Cerrar">✖</a>
+</div>
+
 
 <main class="pantalla-unica">
 

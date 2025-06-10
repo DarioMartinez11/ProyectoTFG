@@ -88,9 +88,40 @@ nav a:hover {
 }
 
 .titulo {
-    margin-top: 130px; /* antes era 40px */
+    margin-top: clamp(140px, 20vh, 400px);
 }
 
+
+.titulo-con-cierre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 140px; /* default para escritorio */
+  flex-wrap: wrap;
+}
+
+
+.titulo-con-cierre .titulo {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-cerrar-inline {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e50914;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn-cerrar-inline:hover {
+  color: #a2060f;
+}
 
 /* ====== GALERÍA DE IMÁGENES ====== */
 .image-grid {
@@ -254,9 +285,9 @@ nav a:hover {
 
 /* ====== BOTÓN CERRAR ====== */
 .btn-cerrar-global {
-    position: absolute;
-    top: 100px;
-    right: 40px;
+    position: fixed;
+    top: 19%;
+    right: 20px;
     background: transparent;
     color: #e50914;
     font-size: 26px;
@@ -266,6 +297,7 @@ nav a:hover {
     z-index: 999;
     transition: color 0.3s ease;
 }
+
 
 .btn-cerrar-global:hover {
     color: #a2060f;
@@ -477,6 +509,9 @@ footer {
 
 /* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
+    .titulo-con-cierre {
+    margin-top: 280px; /* más espacio en responsive */
+  }
     .main-container {
         flex-direction: column;
         padding: 20px;
