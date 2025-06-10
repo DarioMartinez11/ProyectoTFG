@@ -11,6 +11,7 @@ class Carrito extends Model
 
     protected $table = 'carrito';
     protected $primaryKey = 'ID_Carrito';
+     // Desactiva automáticamente los campos created_at y updated_at
     public $timestamps = false;
     protected $fillable = [
         'ID_Usuario'

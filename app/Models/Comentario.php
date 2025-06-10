@@ -13,6 +13,7 @@ class Comentario extends Model
 
     protected $primaryKey = null;
     public $incrementing = false;
+     // Desactiva automáticamente los campos created_at y updated_at
     public $timestamps = false;
 
     // Campos asignables

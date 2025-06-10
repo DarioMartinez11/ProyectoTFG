@@ -8,9 +8,7 @@ use App\Models\Comentario;
 
 class ComentarioController extends Controller
 {
-    /**
-     * Crear un nuevo comentario
-     */
+   // Almacena un nuevo comentario para un proyecto específico
     public function store(Request $request, $id)
     {
         $request->validate([

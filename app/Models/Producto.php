@@ -11,6 +11,7 @@ class Producto extends Model
 
     protected $table = 'producto';
     protected $primaryKey = 'ID_Producto';
+     // Desactiva automáticamente los campos created_at y updated_at
     public $timestamps = false;
     protected $fillable = [
         'Nombre',

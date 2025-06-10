@@ -12,6 +12,7 @@ class DetallePedido extends Model
     protected $table = 'detallepedido';
     protected $primaryKey = null; 
     public $incrementing = false; 
+     // Desactiva automáticamente los campos created_at y updated_at
     public $timestamps = false;
     protected $fillable = [
         'ID_Pedido',

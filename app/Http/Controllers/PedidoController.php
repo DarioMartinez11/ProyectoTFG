@@ -14,6 +14,7 @@ use App\Mail\CompraRealizada;
 
 class PedidoController extends Controller
 {
+    //  Validación de los datos del formulario de checkout
     public function procesarPedido(Request $request)
     {
         $request->validate([
@@ -28,16 +29,18 @@ class PedidoController extends Controller
             'cvv' => 'required|digits:3',
         ]);
 
+        // Obtener el ID del usuario autenticado y su carrito
         $usuarioId = Auth::id();
         $carrito = Carrito::where('ID_Usuario', $usuarioId)->first();
-
+        // Validar que el carrito no esté vacío
         if (!$carrito || $carrito->detalles->isEmpty()) {
             return redirect()->route('carrito.index')->with('error', 'Tu carrito está vacío.');
         }
-
+        // Iniciar transacción para asegurar la integridad de los datos
         DB::beginTransaction();
 
         try {
+            // Crear un nuevo pedido
             $pedido = Pedido::create([
                 'Fecha' => now(),
                 'Total' => 0,
@@ -48,13 +51,14 @@ class PedidoController extends Controller
             ]);
 
             $total = 0;
-
+            // Procesar cada detalle del carrito
             foreach ($carrito->detalles as $item) {
                 $producto = $item->producto;
                 $precio = $producto->Precio;
                 $subtotal = $precio * $item->Cantidad;
                 $total += $subtotal;
-
+              
+                 // Crear detalle del pedido
                 DetallePedido::create([
                     'ID_Pedido' => $pedido->ID_Pedido,
                     'ID_Producto' => $item->ID_Producto,
@@ -62,8 +66,8 @@ class PedidoController extends Controller
                     'Precio_Unitario' => $precio,
                 ]);
 
-                // ✅ Descontar stock sin usar timestamps
-                $producto->timestamps = false;
+                // Descontar stock sin usar timestamps 
+                $producto->timestamps = false; // evitar que actualice updated_at
                 $producto->Stock -= $item->Cantidad;
                 $producto->save();
             }
@@ -80,8 +84,10 @@ class PedidoController extends Controller
                 'ultimos4' => $ultimos4,
             ]);
 
+            // Enviar correo de confirmación
             Mail::to($request->email)->send(new CompraRealizada($datos, $carrito->detalles));
-
+         
+            // Confirmar transacción
             DB::commit();
             return redirect()->route('pedido.confirmacion')->with('success', '✅ Gracias por tu compra. Revisa tu correo.');
         } catch (\Exception $e) {
@@ -89,6 +95,8 @@ class PedidoController extends Controller
             return redirect()->route('carrito.index')->with('error', '❌ Ocurrió un error al procesar tu pedido.');
         }
     }
+
+    // Muestra la vista de confirmación del pedido
 
     public function confirmacion()
     {

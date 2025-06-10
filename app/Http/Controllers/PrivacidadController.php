@@ -8,13 +8,16 @@ use Illuminate\Support\Facades\Auth;
 
 class PrivacidadController extends Controller
 {
+    // Muestra la vista de configuración de privacidad del usuario (perfil, cambio de contraseña, etc.)
     public function index()
     {
         return view('privacidad');
     }
 
+    // Muestra el formulario para cambiar la contraseña
     public function cambiarContrasena(Request $request)
     {
+         // Valida que se ingrese la contraseña actual y la nueva (confirmada y con mínimo 6 caracteres)
         $request->validate([
             'password_actual' => 'required',
             'nueva_password' => 'required|min:6|confirmed',
@@ -22,7 +25,7 @@ class PrivacidadController extends Controller
 
         $user = Auth::user();
 
-        // IMPORTANTE: el campo correcto en tu base de datos es 'Contraseña', no 'password'
+         // Verifica que la contraseña actual sea correcta
         if (!Hash::check($request->password_actual, $user->Contraseña)) {
             return back()->withErrors(['password_actual' => 'La contraseña actual no es correcta.']);
         }
@@ -34,6 +37,7 @@ class PrivacidadController extends Controller
         return back()->with('success', 'Contraseña cambiada con éxito.');
     }
 
+    // Actualiza el correo electrónico del usuario
     public function actualizarCorreo(Request $request)
     {
         $request->validate([

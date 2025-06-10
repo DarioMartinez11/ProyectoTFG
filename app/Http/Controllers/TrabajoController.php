@@ -8,6 +8,7 @@ use App\Models\Comentario;
 
 class TrabajoController extends Controller
 {
+    // Muestra una lista aleatoria de hasta 70 proyectos, incluyendo la media de valoraciones
     public function index()
     {
         $proyectos = Proyecto::with('comentarios')->inRandomOrder()->take(70)->get();
@@ -19,6 +20,7 @@ class TrabajoController extends Controller
         return view('trabajos', compact('proyectos'));
     }
 
+    // Muestra un proyecto en detalle, incluyendo sus comentarios y valoración promedio
     public function show($id)
     {
         $proyecto = Proyecto::with(['comentarios.usuario'])->findOrFail($id);
@@ -41,6 +43,7 @@ class TrabajoController extends Controller
         return view('trabajos.show', compact('proyecto', 'comentarios', 'mediaRedondeada', 'comentarioUsuario'));
     }
 
+    // Filtra proyectos por categoría y calcula su media de valoraciones
     public function filtrarPorCategoria($categoria)
     {
         $proyectos = Proyecto::with('comentarios')
@@ -59,6 +62,7 @@ class TrabajoController extends Controller
         return view('trabajos.create');
     }
 
+    // Guarda un nuevo proyecto con imágenes opcionales (antes/después)
     public function store(Request $request)
     {
         $request->validate([

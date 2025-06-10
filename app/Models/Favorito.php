@@ -11,6 +11,7 @@ class Favorito extends Model
 
     protected $table = 'favoritos_productos';
     public $incrementing = false;
+     // Desactiva automáticamente los campos created_at y updated_at
     public $timestamps = false;
 
     protected $primaryKey = ['ID_Usuario', 'ID_Producto']; // ← esta línea NO funcionará sola

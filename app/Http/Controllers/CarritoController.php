@@ -10,6 +10,7 @@ use App\Models\Producto;
 
 class CarritoController extends Controller
 {
+    // Muestra los productos en el carrito del usuario autenticado
     public function index()
     {
         $carrito = Carrito::where('ID_Usuario', Auth::id())->first();
@@ -80,6 +81,7 @@ public function agregar($id)
         return redirect()->back()->with('success', 'Cantidad actualizada');
     }
 
+     // Muestra la vista de resumen del carrito para proceder al pago (checkout)
     public function checkout()
     {
         $carrito = Carrito::where('ID_Usuario', Auth::id())->first();

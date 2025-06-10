@@ -11,6 +11,7 @@ class Pedido extends Model
 
     protected $table = 'pedido';
     protected $primaryKey = 'ID_Pedido';
+     // Desactiva automáticamente los campos created_at y updated_at
     public $timestamps = false;
     protected $fillable = [
         'Fecha',

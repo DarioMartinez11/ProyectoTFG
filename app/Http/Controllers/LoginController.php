@@ -8,12 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    // Muestra el formulario de login
     public function show()
     {
         return view('login.login');
 
     }
 
+    // Procesa el intento de inicio de sesión del usuario
     public function login(Request $request)
     {
         $credentials = $request->validate([

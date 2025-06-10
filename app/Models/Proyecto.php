@@ -11,7 +11,7 @@ class Proyecto extends Model
 
     protected $table = 'proyecto';
     protected $primaryKey = 'ID_Proyecto';
-
+ // Desactiva automáticamente los campos created_at y updated_at
     public $timestamps = false;
     protected $fillable = [
         'Titulo',

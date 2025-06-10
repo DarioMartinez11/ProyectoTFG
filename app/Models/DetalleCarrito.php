@@ -11,6 +11,7 @@ class DetalleCarrito extends Model
 
     protected $table = 'DetalleCarrito';
     protected $primaryKey = null; 
+     // Desactiva automáticamente los campos created_at y updated_at
      public $timestamps = false;
     public $incrementing = false; 
     protected $fillable = [

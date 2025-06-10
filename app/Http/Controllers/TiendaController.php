@@ -27,6 +27,7 @@ class TiendaController extends Controller
 
         $productos = $query->get();
 
+         // Obtener favoritos del usuario autenticado
         $favoritos = [];
         if (Auth::check()) {
             $favoritos = Auth::user()->favoritos()->pluck('ID_Producto')->toArray();

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
+
+    // Muestra la lista de artículos ordenados por fecha descendente
     public function index()
     {
         $posts = ArticuloBlog::orderByDesc('Fecha')->get();
@@ -18,6 +20,7 @@ class BlogController extends Controller
         ]);
     }
 
+    // Muestra un artículo específico por su ID
     public function show($id)
     {
         $post = ArticuloBlog::findOrFail($id);
@@ -29,6 +32,7 @@ class BlogController extends Controller
         return view('blog.create');
     }
 
+    // Almacena un nuevo artículo en la base de datos
     public function store(Request $request)
     {
         $request->validate([
@@ -92,7 +96,7 @@ class BlogController extends Controller
     {
         $post = ArticuloBlog::findOrFail($id);
 
-        // (Opcional) Eliminar imagen del disco si existe
+        // (Opcional) Eliminar imagen si existe
         if ($post->Imagen && file_exists(public_path($post->Imagen))) {
             unlink(public_path($post->Imagen));
         }

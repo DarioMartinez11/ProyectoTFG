@@ -30,7 +30,7 @@ class ContactoController extends Controller
         // Convertir array de motivos a texto
         $motivosTexto = $request->motivo ? implode(', ', $request->motivo) : 'No especificado';
     
-        // Enviar correo
+        // Enviar correo - Metodo para enviar el correo
         Mail::raw(
             "Nuevo mensaje de contacto:\n\n" .
             "Nombre: {$request->nombre}\n" .
